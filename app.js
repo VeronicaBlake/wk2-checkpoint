@@ -1,5 +1,6 @@
 let feed = 0;
 let modifiers = 1;
+let autoMod = 1;
 
 let clickUpgrades = {
     Double:{
@@ -35,24 +36,32 @@ function buyDouble(){
 
 function buyBox(){
     if (feed >= autoUpgrades.box.price){
-        (feed -= autoUpgrades.box.price)
+        feed -= autoUpgrades.box.price
         autoUpgrades.box.quantity ++
+        autoMod = modifiers*autoUpgrades.box.multiplier
         document.getElementById('box').innerText = autoUpgrades.box.quantity
         startInterval()
+        update()
     }
 }
 
 function buyBaker(){
     if (feed >= autoUpgrades.baker.price){
-        (feed -= autoUpgrades.baker.price)
+        feed -= autoUpgrades.baker.price
         autoUpgrades.baker.quantity ++
         document.getElementById('baker').innerText = autoUpgrades.baker.quantity
         startInterval()
+        update()
     }
 }
 
+function collectAutoUpgrades(){
+    feed = autoMod + feed
+    update()
+}
+
 function startInterval() {
-    setInterval(buyBox, 5000);
+    collectionInterval = setInterval(collectAutoUpgrades, 3000);
 }
 
 function mine(){
@@ -61,6 +70,5 @@ function mine(){
 }
 
 function update(){
-    fed ++
     document.getElementById('fed').innerText = feed
 }
