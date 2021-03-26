@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Cookie Clicker Game</title>
+    <title>Dino Deano's Doughnuts</title>
 </head>
 
 <body>
@@ -20,8 +20,8 @@
         <!---STYLE this is the counter card row-->
         <div class = "row text-center">
             <div class = "col card">
-                <div class = "card-body">
-                    <h4>Clicks: Number of Clicks</h4>
+                <div class = "card body">
+                    <h4>Doughnuts Fed: <span id = "fed">--</span></h4>
                 </div>
             </div>
         </div>
@@ -30,18 +30,24 @@
             <div class = "col-2 card">
                 <div class ="card-body">
                     <h4>Resources</h4>
+                    <button class="btn resource-btn" onclick = 'buyDouble()'>Double!</button>
+                    <button class="btn resource-btn" onclick = 'buyTriple()'>Triple!</button>
+                    <button class="btn resource-btn" onclick = 'buyBox()'>Box!</button>
+                    <button class="btn resource-btn" onclick = 'buyBaker()'>Baker!</button>
                 </div>
             </div>
-            <!---Mian Icon-->
+            <!---Main Icon-->
             <div class = "col-7 card">
-                <div class ="card-body">
-                    <h4>Main Icon Clicker</h4>
-                </div>
+                <img src ="Dino Deano.jpg" onclick = 'mine()'><img>
             </div>
             <!---Purchased-->
             <div class = "col-2 card">
                 <div class ="card-body">
                     <h4>Purchased</h4>
+                    <h5>Double: <span id = "double">--</span></h5>
+                    <h5>Triple Fed: <span id = "triple">--</span></h5>
+                    <h5>Box: <span id = "box">--</span></h5>
+                    <h54>Baker: <span id = "baker">--</span></h54>
                 </div>
             </div>
         </div>
@@ -49,7 +55,7 @@
 
     <footer class = "container-fluid fixed-bottom">
         <div class = "row text-center bg-primary">
-            <div>GamerGirl Feet Footers Inc.</div>
+            <div>GamerGirlFooters Inc.</div>
         </div>
     </footer>
     <script src="app.js"></script>
