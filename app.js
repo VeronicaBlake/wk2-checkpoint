@@ -38,7 +38,21 @@ function buyBox(){
         (feed -= autoUpgrades.box.price)
         autoUpgrades.box.quantity ++
         document.getElementById('box').innerText = autoUpgrades.box.quantity
+        startInterval()
     }
+}
+
+function buyBaker(){
+    if (feed >= autoUpgrades.baker.price){
+        (feed -= autoUpgrades.baker.price)
+        autoUpgrades.baker.quantity ++
+        document.getElementById('baker').innerText = autoUpgrades.baker.quantity
+        startInterval()
+    }
+}
+
+function startInterval() {
+    setInterval(buyBox, 5000);
 }
 
 function mine(){
