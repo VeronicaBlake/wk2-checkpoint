@@ -1,51 +1,48 @@
 let feed = 0;
+let modifiers = 1;
 
 let clickUpgrades = {
     Double:{
-        price: 5,
+        price: 1,
         quantity: 0,
         multiplier: 2
     },
-    Triple:{
-        price: 10,
-        quantity: 0,
-        multiplier: 3
-    }
 };
 
 let autoUpgrades = {
-    boxD:{
-        price: 1000,
+    box:{
+        price: 5,
         quantity: 0,
-        multiplier: 5
+        multiplier: 12
     },
-    bakerD:{
-        price: 13000,
+    baker:{
+        price: 10,
         quantity: 0,
-        multiplier: 5
+        multiplier: 24
     }
 }
 
 function buyDouble(){
     if (feed >= clickUpgrades.Double.price){
-        feed -= 5
-        update()
+        (feed -= clickUpgrades.Double.price)
         clickUpgrades.Double.quantity ++
+        document.getElementById('double').innerText = clickUpgrades.Double.quantity
+        modifiers = modifiers* clickUpgrades.Double.multiplier 
+        clickUpgrades.Double.price = clickUpgrades.Double.price*modifiers
+        update()
     }
-    document.getElementById('double').innerText = clickUpgrades.Double.quantity
 }
 
-function buyTriple(){
-    if (feed >= clickUpgrades.Triple.price){
-        feed -= 10
-        update()
-        clickUpgrades.Triple.quantity ++
+function buyBox(){
+    if (feed >= autoUpgrades.box.price){
+        (feed -= autoUpgrades.box.price)
+        autoUpgrades.box.quantity ++
+        document.getElementById('box').innerText = autoUpgrades.box.quantity
     }
-    document.getElementById('triple').innerText = clickUpgrades.Double.quantity
 }
 
 function mine(){
-    feed ++;
+    feed = modifiers + feed
     update()
 }
 
