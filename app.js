@@ -10,12 +10,13 @@ let clickUpgrades = {
         quantity: 0,
         multiplier: 2
     },
-    plusMod:{
-        price: 2,
-        quantity: 0,
-        multiplier: 2
-    }
 };
+
+let plus = {
+    price: 2,
+    quantity: 0,
+    multiplier: 1
+}
 
 let autoUpgrades = {
     box:{
@@ -42,12 +43,12 @@ function buyDouble(){
 }
 
 function plusOne(){
-    if (feed >= clickUpgrades.plusMod.price){
-        (feed -= clickUpgrades.plusMod.price)
-        clickUpgrades.plusMod.quantity ++
-        plusMod = plusMod+clickUpgrades.plusMod.quantity 
-        document.getElementById('plusOne').innerText = clickUpgrades.plusMod.quantity
-        clickUpgrades.plusMod.price = clickUpgrades.plusMod.price*plusMod
+    if (feed >= plus.price){
+        (feed -= plus.price)
+        plus.quantity ++
+        plus.multiplier = plus.quantity 
+        document.getElementById('plusOne').innerText = plus.quantity
+        plus.price = plus.price*plus.multiplier
         update()
     }
 }
