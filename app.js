@@ -1,6 +1,5 @@
 let feed = 0;
 let modifiers = 1;
-let plusMod = 0;
 let boxMod = 1;
 let bakerMod = 1;
 
@@ -12,17 +11,11 @@ let clickUpgrades = {
     },
 };
 
-let plus = {
-    price: 2,
-    quantity: 0,
-    multiplier: 1
-}
-
 let autoUpgrades = {
     box:{
-        price: 5,
+        price: 2,
         quantity: 0,
-        multiplier: 5
+        multiplier: 2
     },
     baker:{
         price: 10,
@@ -38,27 +31,20 @@ function buyDouble(){
         modifiers = modifiers* clickUpgrades.Double.multiplier 
         document.getElementById('double').innerText = clickUpgrades.Double.quantity
         clickUpgrades.Double.price = clickUpgrades.Double.price*modifiers
+        document.getElementById('double-cookies').innerText = modifiers
         update()
     }
 }
 
-function plusOne(){
-    if (feed >= plus.price){
-        (feed -= plus.price)
-        plus.quantity ++
-        plus.multiplier = plus.quantity 
-        document.getElementById('plusOne').innerText = plus.quantity
-        plus.price = plus.price*plus.multiplier
-        update()
-    }
-}
 
 function buyBox(){
     if (feed >= autoUpgrades.box.price){
         feed -= autoUpgrades.box.price
         autoUpgrades.box.quantity ++
+        autoUpgrades.box.price = autoUpgrades.box.price*boxMod
         boxMod = boxMod*autoUpgrades.box.multiplier
         document.getElementById('box').innerText = autoUpgrades.box.quantity
+        document.getElementById('box-cookies').innerText = autoUpgrades.box.multiplier
         startInterval()
         update()
     }
@@ -76,7 +62,7 @@ function buyBaker(){
 }
 
 function collectAutoUpgrades(){
-    feed = boxMod + feed + bakerMod
+    feed = boxMod + feed 
     update()
 }
 
@@ -85,7 +71,7 @@ function startInterval() {
 }
 
 function mine(){
-    feed = modifiers + feed + plusMod
+    feed = modifiers + feed
     update()
 }
 

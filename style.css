@@ -4,6 +4,11 @@
     margin:1rem
 }
 
+.dino{
+    max-height: 60rem;
+    max-width: 40rem;
+}
+
 .resource-btn{
     background-color: orange;
     margin: .5rem;
