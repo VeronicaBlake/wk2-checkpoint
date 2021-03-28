@@ -5,12 +5,12 @@ let bakerMod = 1;
 
 let clickUpgrades = {
     Double:{
-        price: 20,
+        price: 10,
         quantity: 0,
         multiplier: 2
     },
     triple:{
-        price: 30,
+        price: 10,
         quantity: 0,
         multiplier: 3
     },
@@ -18,12 +18,12 @@ let clickUpgrades = {
 
 let autoUpgrades = {
     box:{
-        price: 100,
+        price: 10,
         quantity: 0,
         multiplier: 12
     },
     baker:{
-        price: 500,
+        price: 20,
         quantity: 0,
         multiplier: 13
     }

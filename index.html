@@ -11,16 +11,16 @@
 </head>
 
 <body>
-    <header class = "container-fluid bg-success">
+    <header class = "container-fluid main-bg text-light shadow">
         <div class = "row text-center">
         <div class = "col"><h1>Dino Deano's Doughnuts</h1></div>
         </div>
     </header>
 
-    <main class = "container-fluid bg-warning">
+    <main class = "container-fluid main-bg">
         <!---counter card row-->
         <div class = "row p-3 text-light text-center bg-primary">
-            <div class = "col">
+            <div class = "col shadow">
                     <h1>Doughnuts Fed: <span id = "feed">--</span></h1>
             </div>
         </div>
@@ -29,15 +29,14 @@
             <div class = "col-2 card">
                 <div class ="card-body">
                     <h4>Resources</h4>
-                    <button class="btn resource-btn" onclick = 'buyDouble()'>Double!</button>
+                    <button class="btn resource-btn" onclick = 'buyDouble()'><h4>Double!</h4>2 doughnuts per click.</button>
                     <h5>Double Price: <span id ="double-price">--</span></h5>
-                    <button class="btn resource-btn" onclick = 'buyTriple()'>triple!</button>
+                    <button class="btn resource-btn" onclick = 'buyTriple()'><h4>Triple!</h4>3 doughnuts per click.</button>
                     <h5>triple Price: <span id ="triple-price">--</span></h5>
-                    <button class="btn resource-btn" onclick = 'buyBox()'>Box!</button>
+                    <button class="btn resource-btn" onclick = 'buyBox()'><h4>Box of Doughnuts!</h4>12 doughnuts every 3 seconds</button>
                     <h5>Box Price: <span id ="box-price">--</span></h5>
-                    <button class="btn resource-btn" onclick = 'buyBaker()'>Baker!</button>
+                    <button class="btn resource-btn" onclick = 'buyBaker()'><h4>Baker's Dozen!</h4>13 doughnuts every 5 seconds</button>
                     <h5>Baker Price: <span id ="baker-price">--</span></h5>
-                    <button class="btn resource-btn" onclick = 'plusOne()'>--</button>
                 </div>
             </div>
             <!---Main Icon-->
