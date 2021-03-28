@@ -11,19 +11,17 @@
 </head>
 
 <body>
-    <header class = "container-fluid">
+    <header class = "container-fluid bg-success">
         <div class = "row text-center">
         <div class = "col"><h1>Dino Deano's Doughnuts</h1></div>
         </div>
     </header>
 
-    <main class = "container-fluid">
-        <!---STYLE this is the counter card row-->
-        <div class = "row text-center">
-            <div class = "col card">
-                <div class = "card body">
-                    <h4>Doughnuts Fed: <span id = "feed">--</span></h4>
-                </div>
+    <main class = "container-fluid bg-warning">
+        <!---counter card row-->
+        <div class = "row p-3 text-light text-center bg-primary">
+            <div class = "col">
+                    <h1>Doughnuts Fed: <span id = "feed">--</span></h1>
             </div>
         </div>
         <!---Resources-->
@@ -43,9 +41,9 @@
                 </div>
             </div>
             <!---Main Icon-->
-            <div class = "col-7 card dino">
+            <div class = "col-4 card dino bg-success">
                 <button class = "btn btn-lg btn-primary" onclick = 'mine()'>Feed Dino!</button>
-                <img src ="Dino Deano.jpg"><img> 
+                <img src ="deano.jpg"><img> 
             </div>
             <!---Purchased-->
             <div class = "col-2 card">
