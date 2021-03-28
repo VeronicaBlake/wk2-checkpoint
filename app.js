@@ -5,22 +5,27 @@ let bakerMod = 1;
 
 let clickUpgrades = {
     Double:{
-        price: 2,
+        price: 20,
         quantity: 0,
         multiplier: 2
+    },
+    triple:{
+        price: 30,
+        quantity: 0,
+        multiplier: 3
     },
 };
 
 let autoUpgrades = {
     box:{
-        price: 2,
+        price: 100,
         quantity: 0,
-        multiplier: 2
+        multiplier: 12
     },
     baker:{
-        price: 10,
+        price: 500,
         quantity: 0,
-        multiplier: 10
+        multiplier: 13
     }
 }
 
@@ -36,15 +41,27 @@ function buyDouble(){
     }
 }
 
+function buyTriple(){
+    if (feed >= clickUpgrades.triple.price){
+        (feed -= clickUpgrades.triple.price)
+        clickUpgrades.triple.quantity ++
+        modifiers = modifiers* clickUpgrades.triple.multiplier 
+        document.getElementById('triple').innerText = clickUpgrades.triple.quantity
+        clickUpgrades.triple.price = clickUpgrades.triple.price*modifiers
+        document.getElementById('triple-cookies').innerText = modifiers
+        update()
+    }
+}
+
 
 function buyBox(){
     if (feed >= autoUpgrades.box.price){
         feed -= autoUpgrades.box.price
         autoUpgrades.box.quantity ++
-        autoUpgrades.box.price = autoUpgrades.box.price*boxMod
         boxMod = boxMod*autoUpgrades.box.multiplier
         document.getElementById('box').innerText = autoUpgrades.box.quantity
-        document.getElementById('box-cookies').innerText = autoUpgrades.box.multiplier
+        autoUpgrades.box.price = autoUpgrades.box.price*boxMod
+        document.getElementById('box-cookies').innerText = boxMod
         startInterval()
         update()
     }
@@ -56,18 +73,35 @@ function buyBaker(){
         autoUpgrades.baker.quantity ++
         bakerMod = bakerMod*autoUpgrades.baker.multiplier
         document.getElementById('baker').innerText = autoUpgrades.baker.quantity
-        startInterval()
+        autoUpgrades.baker.price = autoUpgrades.baker.price*bakerMod
+        document.getElementById('baker-bonus').innerText = bakerMod
+        startIntervalBaker()
         update()
     }
 }
+
+// function popPrice{
+//     document.getElementById('baker-price').innerText = autoUpgrades.baker.price
+//     document.getElementById('box-price').innerText = autoUpgrades.box.price
+//     document.getElementById('double-price').innerText = clickUpgrades.Double.price
+// }
 
 function collectAutoUpgrades(){
     feed = boxMod + feed 
     update()
 }
 
+function collectAutoUpgradesBaker(){
+    feed = bakerMod + feed 
+    update()
+}
+
 function startInterval() {
     collectionInterval = setInterval(collectAutoUpgrades, 3000);
+}
+
+function startIntervalBaker() {
+    collectionInterval = setInterval(collectAutoUpgradesBaker, 5000);
 }
 
 function mine(){
