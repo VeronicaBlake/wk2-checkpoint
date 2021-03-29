@@ -3,6 +3,34 @@ let modifiers = 1;
 let boxMod = 1;
 let bakerMod = 1;
 
+// let upgrades = {
+//     clickUpgrades = {
+//         double:{
+//             price: 10,
+//             quantity: 0,
+//             multiplier: 2  
+//         },
+//         triple:{
+//             price: 10,
+//             quantity: 0,
+//             multiplier: 3
+//         }
+//     },
+//     autoUpgrades = {
+//         box:{
+//             price: 10,
+//             quantity: 0,
+//             multiplier: 12
+//         },
+//         baker:{
+//             price: 20,
+//             quantity: 0,
+//             multiplier: 13
+//         },
+//     },
+// }
+
+
 let clickUpgrades = {
     Double:{
         price: 10,
@@ -29,6 +57,7 @@ let autoUpgrades = {
     }
 }
 
+//re-factored and wrote all of these in one function (how (?))
 function buyDouble(){
     if (feed >= clickUpgrades.Double.price){
         (feed -= clickUpgrades.Double.price)
